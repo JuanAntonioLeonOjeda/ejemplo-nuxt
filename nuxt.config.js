@@ -40,12 +40,41 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://www.thecocktaildb.com/api/json/v1/1/',
+    baseURL: 'https://e-driving.onrender.com/api',
+  },
+  
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/home'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/auth/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url: '/user/profile/:id',
+            method: 'get',
+            propertyName: false
+          }
+        },
+        autoFetchUser: true,
+        tokenType: '',
+        tokenName: 'token'
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

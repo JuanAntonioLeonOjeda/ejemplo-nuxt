@@ -24,6 +24,10 @@ export const actions = {
   async getCategoryDrinks (state, value) {
     const result = await this.$axios.get(`filter.php?c=${value}`)
     return result.data.drinks
+  },
+  async getAllUsers () {
+    const result = await this.$axios.get('/user')
+    return result.data
   }
 }
 

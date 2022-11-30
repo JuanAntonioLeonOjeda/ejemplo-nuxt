@@ -11,6 +11,10 @@
       <NuxtLink to="/categories">
         <ButtonComponent text="Get Category List" />
       </NuxtLink>
+      <br>
+      <NuxtLink to="/login">
+        <ButtonComponent text="Login" />
+      </NuxtLink>
     </v-col>
   </v-row>
 </template>
